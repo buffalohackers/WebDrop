@@ -7,17 +7,17 @@ app.debug = True
 
 @app.route("/")
 def hello():
-	return flask.render_template("upload.html")
-@app.route("/index")
+	return flask.render_template("splash.html")
+
+
+@app.route("/upload")
 def index():
-	return flask.render_template("base.html")
+	return flask.render_template("upload.html")
+
+
 @app.route("/receive")
 def receive():
 	return flask.render_template("receive.html")
-
-
-
-	#return flask.render_template("splash.html")
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 1337))
