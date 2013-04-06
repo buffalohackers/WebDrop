@@ -43,7 +43,10 @@
 
 .main-splash {
 	padding-top: 40px;
-	margin-bottom: 90px;
+	padding-bottom: 90px;
+	background-image: url('../img/bg.png');
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .home-infos p {
