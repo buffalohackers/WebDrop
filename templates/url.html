@@ -13,11 +13,20 @@
     <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../static/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
-
-     <script src="../static/js/jquery.js"></script>
+    <script src="http://cdn.peerjs.com/0/peer.min.js"></script>
+    <script src="../static/js/jquery.js"></script>
     <script src="../static/js/angular.js"></script>
-    <script src="../static/js/main.js"></script>
-  </head>
+    <script src="../static/js/main.js"></script>\
+    <script type="text/javascript" src="../static/js/connect.js"></script>
+    <script>
+        var id = getId();
+        var url = "http://www.buffalohackers.com/webdrop/" + id ;
+        console.log(url);
+        $(document).ready(function(){
+            $('.url').append(url);
+        });                
+    </script>
+</head>
 
 <body ng-controller="MainController">
 
@@ -47,34 +56,12 @@
 <div class="container" >
 	<div class="row">
 		<div class="span12">
-			<h3>Stage Files</h3>
-			<p>Choose files you would like to stage. Once this is complete, you will receive URL's for each file which you can share.</p>
-		</div>
-	</div>
-	<div class="row">
-		<div class="span12">
-			<div class="drag-box" ng-drop="drop()">
-				<div class="reg-stage">
-					<h4>Click the button below to select files or Drag & Drop.</h4>
-					<button class="btn" type="button">Select Files</button>
-				</div>
-			</div>
-		</div>
-	</div>
+			<h3>Step 1: Your Personal URL</h3>
+			<p>Below is the URL needed to connect to the person you're sending files. Simply give this URL to the person you would like to send files to. Once the connection is made, you will be able to send files.</p>
 
-	<div class="row">
-		<div class="span12">
-			<div class="file-list">
-				<h5>Currently Staged Files</h5>
-				<ul ng-repeat="file in files">
-					<li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
-										<li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+            <h5 class="url"></h5>
 
-					<li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
-
-
-				</ul>
-			</div>
+            <h2 class="connection-status">Waiting for Connection...</h2>
 		</div>
 	</div>
 </div>

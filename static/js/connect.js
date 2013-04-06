@@ -1,8 +1,3 @@
-<html>
-	<head>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="http://cdn.peerjs.com/0/peer.min.js"></script>
-		<script>
 			var connections = [];
 
 		    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
@@ -13,8 +8,8 @@
 		    	random_id += chars[Math.floor(Math.random()*chars.length)];
 		    }
 
-		    console.log("http://www.buffalohackers.com/webdrop/" + random_id);
-
+/*		    console.log("http://www.buffalohackers.com/webdrop/" + random_id);
+*/
 		    var peer = new Peer(random_id, {host: 'www.buffalohackers.com', port: 80});
 
 		    peer.on('connection', function(conn) {
@@ -57,10 +52,4 @@
 					sendData();
 				});
 			});
-		</script>
-	</head>
-	<body>
-		<input type="text" id="text">
-		<input type="button" id="send" value="send">
-	</body>
-</html>
+	
