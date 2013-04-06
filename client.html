@@ -1,0 +1,20 @@
+<script src="http://cdn.peerjs.com/0/peer.min.js"></script>
+<script>
+    // No API key requried when not using cloud server
+    var peer = new Peer('some-id', {host: 'webdropper.herokuapp.com', port: 9000});
+    peer.on('connection', function(conn){
+	  conn.on('data', function(data) {
+	    console.log('Got data:', data);
+	  });
+	});
+	console.log(peer.connections);
+	var conn = peer.connect('some-id');
+	conn.on('open', function() {
+	  conn.send('Hello world!');
+	  console.log('sending');
+	});
+
+	conn.on('error', function() {
+		console.log("herererer");
+	})
+</script>
