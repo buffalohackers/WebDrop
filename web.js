@@ -1,6 +1,6 @@
 var fs = require('fs');
 var PeerServer = require('peer').PeerServer;
-var server = new PeerServer({ port: 9000 });
+var server = new PeerServer({ port: 80 });
 
 server._app.get("/", function (request, response) {
 	fs.readFile('./client.html', function (err, html) {
