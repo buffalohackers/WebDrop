@@ -9,54 +9,72 @@
     <meta name="author" content="">
 
     <!-- Da Pretty Files -->
-    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" rel="stylesheet">
-    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+    <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/angular.js"></script>
+    <script src="../static/js/main.js"></script>
+
   </head>
 
 <body>
 
-<div id="header">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="./index.html">Bootstrap</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li class="active">
-                <a href="./index.html">Home</a>
-              </li>
-              <li class="">
-                <a href="./getting-started.html">Get started</a>
-              </li>
-              <li class="">
-                <a href="./scaffolding.html">Scaffolding</a>
-              </li>
-            </ul>
-          </div>
+<div class="top-login">
+    <div class="container">
+        <div class="row">
+            <div class="span1">
+                WebDrop
+            </div>
+            <div class="span9">
+                <ul>
+                    <li><a href="/upload">Load Files</a></li>
+                    <li><a href="/upload">About</a></li>
+                    <li><a href="/upload">How it Works</a></li>
+                </ul>               
+            </div>
+
+
+
+            <div class="span2">
+                <span class="pull-right" style="color:gray"><i class="icon-user"></i> <a href="#">Login</a></span>
+            </div>
         </div>
-      </div>
     </div>
 </div>
-
 <!-- this is the page content templating -->
 {% block content %}{% endblock %}
 
 
-<div id="footer">
-<!-- footer things in here -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <Div class="span4">
+                <p class="pull-right">Built by the <a href="http://www.buffalohackers.com" target="_blank">Buffalo Hackers</a></p>
+            </Div>
+        </div>
+    </div>
 </div>
+
 
  <!-- Da javascript's
     ================================================== -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
-    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
+
+    <script src="../static/js/bootstrap.js"></script>
 
 </body>
 </html>

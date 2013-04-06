@@ -130,8 +130,25 @@
 .top-login ul li {
 	display: inline;
 	margin-right: 25px;
-
 }
+
+.drag-box {
+	border: 3px dashed #aaa;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 50px;
+	height: 400px;
+}
+
+.drag-box .reg-stage h4{
+	font-weight: normal;
+}
+
+.reg-stage {
+	padding: 50px;
+	margin-top: 5%;
+}
+
 
 
 

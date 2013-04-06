@@ -1,10 +1,103 @@
-{% extends "base.html" %}
-{% block content %}
+<!doctype>
+<html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebDrop - Social file sharing at its best</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<div class="content">
+    <!-- Da Pretty Files -->
+    <link href="../static/css/bootstrap.css" rel="stylesheet">
+    <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="../static/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/font-awesome.min.css">
 
-	<h1>WHOOP</h1>
+     <script src="../static/js/jquery.js"></script>
+    <script src="../static/js/angular.js"></script>
+    <script src="../static/js/main.js"></script>
+  </head>
 
+<body ng-controller="MainController">
+
+<div class="top-login">
+    <div class="container">
+        <div class="row">
+            <div class="span1">
+                WebDrop
+            </div>
+            <div class="span9">
+                <ul>
+                    <li><a href="/upload">Load Files</a></li>
+                    <li><a href="/upload">About</a></li>
+                    <li><a href="/upload">How it Works</a></li>
+                </ul>               
+            </div>
+
+
+
+            <div class="span2">
+                <span class="pull-right" style="color:gray"><i class="icon-user"></i> <a href="#">Login</a></span>
+            </div>
+        </div>
+    </div>
 </div>
 
-{% endblock %}
+<div class="container" >
+	<div class="row">
+		<div class="span12">
+			<h3>Stage Files</h3>
+			<p>Choose files you would like to stage. Once this is complete, you will receive URL's for each file which you can share.</p>
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12">
+			<div class="drag-box" ng-drop="drop()">
+				<div class="reg-stage">
+					<h4>Click the button below to select files or Drag & Drop.</h4>
+					<button class="btn" type="button">Select Files</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="span12">
+			<ul ng-repeat="file in files">
+				<li> {{ file.name }} {{ file.type }} {{ file.contents }} </li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="span8">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">API</a></li>
+                    <li><a href="#">People</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <Div class="span4">
+                <p class="pull-right">Built by the <a href="http://www.buffalohackers.com" target="_blank">Buffalo Hackers</a></p>
+            </Div>
+        </div>
+    </div>
+</div>
+
+
+ <!-- Da javascript's
+    ================================================== -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="../static/js/bootstrap.js"></script>
+
+</body>
+</html>
