@@ -20,6 +20,8 @@ def index():
 def receive():
 	return flask.render_template("receive.html")
 
+	# Testing
+
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 1337))
