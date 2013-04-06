@@ -1,0 +1,96 @@
+/* STYLES FOR WebDrop
+	@FILE: styles.css;
+	@AUTHOR: Joseph Peacock;
+	@CONTRIBUTIONS: Patrick Jameson, 
+					Nathan Burgers, 
+					Isaac Reath,
+					Gabe Holodak;
+	@DATE: 6 April 2013;
+*/
+
+.slogan {
+	text-align: center;
+	padding:30px 0;
+}
+
+.top-login {
+	padding: 20px 0;
+	background-color: #49afcd;
+}
+
+.sign-up form input {
+	margin:0;
+	height:40px;
+	margin:5px 0;
+}
+
+.sign-up button {
+	margin-left: 0;
+	width: 356px;
+	height:40px;
+	margin-top: 10px;
+}
+
+.message h1 {
+	font-size: 4em;
+	line-height: 1em;
+	font-weight: normal;
+}
+
+.message h3 {
+	font-weight: normal;
+	color: #444;
+}
+
+.main-splash {
+	padding-top: 40px;
+}
+
+.home-infos p {
+	font-size: 1.2em;
+	line-height: 1.5em;
+	color: #444;
+}
+
+.home-infos {
+	margin-top: 40px;
+}
+
+.footer ul li {
+	display: inline;
+	padding-right: 30px;
+}
+
+.footer ul {
+	margin-left: 0;
+}
+
+.footer .container{
+	padding-top: 20px;
+	border-top: 1px dashed #ccc;
+}
+
+.footer {
+	margin-top: 50px;
+	padding-bottom: 20px;
+}
+
+.message button {
+	margin-left: 0px;
+	height: 60px;
+	font-size: 2em;
+}
+
+.message {
+	margin-top: 70px;
+}
+
+.start {
+	margin-top: 30px;
+}
+
+
+
+
+
+
