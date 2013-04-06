@@ -15,7 +15,6 @@
 
 .top-login {
 	padding: 20px 0;
-	background-color: #49afcd;
 }
 
 .sign-up form input {
@@ -44,6 +43,7 @@
 
 .main-splash {
 	padding-top: 40px;
+	margin-bottom: 90px;
 }
 
 .home-infos p {
@@ -53,7 +53,7 @@
 }
 
 .home-infos {
-	margin-top: 40px;
+	margin-top: 70px;
 }
 
 .footer ul li {
@@ -71,7 +71,6 @@
 }
 
 .footer {
-	margin-top: 50px;
 	padding-bottom: 20px;
 }
 
@@ -82,12 +81,124 @@
 }
 
 .message {
-	margin-top: 70px;
+	text-align: center;
 }
 
 .start {
 	margin-top: 30px;
 }
+
+.login-share .span6 {
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+
+.login-share .span5 {
+	text-align: center;
+}
+
+.login-share {
+	margin-top: 40px;
+}
+
+.login-share h3 {
+	font-weight: normal;
+}
+
+.main-splash .container {
+	position: relative;
+}
+
+
+.login-share .span5 button {
+	width: 300px;
+	height: 50px;
+	font-size: 1.5em;
+	margin: 15px;
+}
+
+.login-share .span5 p {
+	margin: 15px;
+	font-size: 1em;
+	line-height: 2em;
+}
+
+.login-share .span5 {
+	padding-top: 50px;
+}
+
+.top-login ul li {
+	display: inline;
+	margin-right: 25px;
+}
+
+.drag-box {
+	border: 3px dashed #aaa;
+	border-radius: 5px;
+	text-align: center;
+	margin-top: 30px;
+	height: 400px;
+}
+
+.drag-box .reg-stage h4{
+	font-weight: normal;
+}
+
+.reg-stage {
+	padding: 50px;
+	margin-top: 5%;
+}
+
+.file-list ul li {
+	list-style-type: none;
+	padding: 15px 0;
+}
+
+.file-list ul {
+	margin-left: 0;
+	padding:15px 0;
+}
+
+.file-list {
+	margin-top: 30px;
+}
+
+.file-name {
+	font-size: 1.5em;
+	padding-bottom: 10px;
+	color:#555;
+}
+
+.file-type {
+	color: #777;
+}
+
+.reg-stage button {
+	width: 200px;
+	height: 50px;
+	font-size: 1.3em;
+	margin-top: 10px;
+}
+
+.url {
+	padding: 50px 0;
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.connection-status {
+	font-weight: normal;
+}
+
+.connecting {
+	margin-bottom: 60px;
+}
+
+
+
+
+
+
 
 
 

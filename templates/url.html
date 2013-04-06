@@ -14,13 +14,24 @@
     <link href="../static/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
 
+    <!-- JS IS EVERYWHERE -->
+    <script src="http://cdn.peerjs.com/0/peer.min.js"></script>
     <script src="../static/js/jquery.js"></script>
     <script src="../static/js/angular.js"></script>
     <script src="../static/js/main.js"></script>
+    <script src="../static/js/hover.js"></script>
+    <script type="text/javascript" src="../static/js/connect.js"></script>
+    <script>
+        var id = getId();
+        var url = "http://www.buffalohackers.com/webdrop/" + id ;
+        console.log(url);
+        $(document).ready(function(){
+            $('.url').append(url);
+        });                
+    </script>
+</head>
 
-  </head>
-
-<body>
+<body ng-controller="MainController">
 
 <div class="top-login">
     <div class="container">
@@ -44,8 +55,22 @@
         </div>
     </div>
 </div>
-<!-- this is the page content templating -->
-{% block content %}{% endblock %}
+
+<div class="container" >
+	<div class="row">
+		<div class="span12">
+			<h3>Step 1: Your Personal URL</h3>
+			<p>Below is the URL needed to connect to the person you're sending files. Simply give this URL to the person you would like to send files to. Once the connection is made, you will be able to send files.</p>
+
+            <h5 class="url"></h5>
+
+            <div class="offset3 connecting">
+                <h2 class="connection-status">Waiting for Connection<span id="whoop"></span></h2>
+                <p>If you haven't already, give out your url so your partner can connect.</p>
+            </div>
+		</div>
+	</div>
+</div>
 
 
 <div class="footer">
@@ -73,7 +98,6 @@
  <!-- Da javascript's
     ================================================== -->
     <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
-
     <script src="../static/js/bootstrap.js"></script>
 
 </body>
