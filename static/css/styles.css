@@ -15,7 +15,6 @@
 
 .top-login {
 	padding: 20px 0;
-	background-color: #49afcd;
 }
 
 .sign-up form input {
@@ -53,7 +52,7 @@
 }
 
 .home-infos {
-	margin-top: 40px;
+	margin-top: 70px;
 }
 
 .footer ul li {
@@ -71,7 +70,7 @@
 }
 
 .footer {
-	margin-top: 50px;
+	margin-top: 90px;
 	padding-bottom: 20px;
 }
 
@@ -82,12 +81,60 @@
 }
 
 .message {
-	margin-top: 70px;
+	text-align: center;
 }
 
 .start {
 	margin-top: 30px;
 }
+
+.login-share .span6 {
+	text-align: center;
+	border-right: 1px solid #ccc;
+}
+
+.login-share .span5 {
+	text-align: center;
+}
+
+.login-share {
+	margin-top: 40px;
+}
+
+.login-share h3 {
+	font-weight: normal;
+}
+
+.main-splash .container {
+	position: relative;
+}
+
+
+.login-share .span5 button {
+	width: 300px;
+	height: 50px;
+	font-size: 1.5em;
+	margin: 15px;
+}
+
+.login-share .span5 p {
+	margin: 15px;
+	font-size: 1em;
+	line-height: 2em;
+}
+
+.login-share .span5 {
+	padding-top: 50px;
+}
+
+.top-login ul li {
+	display: inline;
+	margin-right: 25px;
+
+}
+
+
+
 
 
 
