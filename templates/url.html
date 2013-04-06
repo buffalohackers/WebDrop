@@ -13,10 +13,13 @@
     <link href="../static/css/bootstrap-responsive.css" rel="stylesheet">
     <link href="../static/css/styles.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/font-awesome.min.css">
+
+    <!-- JS IS EVERYWHERE -->
     <script src="http://cdn.peerjs.com/0/peer.min.js"></script>
     <script src="../static/js/jquery.js"></script>
     <script src="../static/js/angular.js"></script>
-    <script src="../static/js/main.js"></script>\
+    <script src="../static/js/main.js"></script>
+    <script src="../static/js/hover.js"></script>
     <script type="text/javascript" src="../static/js/connect.js"></script>
     <script>
         var id = getId();
@@ -61,7 +64,10 @@
 
             <h5 class="url"></h5>
 
-            <h2 class="connection-status">Waiting for Connection...</h2>
+            <div class="offset3 connecting">
+                <h2 class="connection-status">Waiting for Connection<span id="whoop"></span></h2>
+                <p>If you haven't already, give out your url so your partner can connect.</p>
+            </div>
 		</div>
 	</div>
 </div>

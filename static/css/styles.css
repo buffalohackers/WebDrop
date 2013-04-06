@@ -188,8 +188,10 @@
 
 .connection-status {
 	font-weight: normal;
-	text-align: center;
-	margin-bottom: 50px;
+}
+
+.connecting {
+	margin-bottom: 60px;
 }
 
 
