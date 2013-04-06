@@ -20,7 +20,7 @@ body {
 
 .top-login {
 	padding: 20px 0;
-	background-color: #000;
+	background-color: #1f6377;
 }
 
 .sign-up form input {
@@ -75,11 +75,8 @@ body {
 	border-top: 1px dashed #ccc;
 }
 
-.wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -70px
+.footer {
+	margin-top: 50px;
 }
 
 .message button {
