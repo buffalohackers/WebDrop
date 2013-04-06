@@ -2,7 +2,7 @@ var fs = require('fs');
 var PeerServer = require('peer').PeerServer;
 var server = new PeerServer({ port: 80 });
 
-server._app.get("/", function (request, response) {
+server._app.get("/webdrop/?*", function (request, response) {
 	fs.readFile('./client.html', function (err, html) {
 		if (err) {
 		    throw err; 
