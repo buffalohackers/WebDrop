@@ -1,15 +1,47 @@
 <!doctype>
 <html>
-<head>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>WebDrop - Social file sharing at its best</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<title>Web Drop</title>
-
-</head>
+    <!-- Da Pretty Files -->
+    <link href="{{ url_for('static', filename='css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/bootstrap-responsive.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+  </head>
 
 <body>
 
 <div id="header">
-	<!-- header things go here -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container">
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="brand" href="./index.html">Bootstrap</a>
+          <div class="nav-collapse collapse">
+            <ul class="nav">
+              <li class="active">
+                <a href="./index.html">Home</a>
+              </li>
+              <li class="">
+                <a href="./getting-started.html">Get started</a>
+              </li>
+              <li class="">
+                <a href="./scaffolding.html">Scaffolding</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>
 
 <!-- this is the page content templating -->
@@ -19,6 +51,12 @@
 <div id="footer">
 <!-- footer things in here -->
 </div>
+
+ <!-- Da javascript's
+    ================================================== -->
+    <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+    <script src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.js') }}"></script>
 
 </body>
 </html>

@@ -1,0 +1,16 @@
+/* STYLES FOR WebDrop
+	@FILE: styles.css;
+	@AUTHOR: Joseph Peacock;
+	@CONTRIBUTIONS: Patrick Jameson, 
+					Nathan Burgers, 
+					Isaac Reath,
+					Gabe Holodak;
+	@DATE: 6 April 2013;
+*/
+
+.masthead {
+	padding-top: 40px;
+	background-color: #000;
+	min-height: 400px;
+}	
+
