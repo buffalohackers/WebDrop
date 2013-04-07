@@ -15,11 +15,12 @@ function MainController($scope){
     $scope.sendFiles = function(files){
     	console.log(files);
 		if(files.length > 0){
-		    for(var i=0; i<files.length; i++){
+		    for(var i=0; i<files.length; i++) {
 			var file = files[i];
 			var reader = new FileReader();
-			reader.onload = function(e){
+			reader.onload = function(e) {
 			    var fileData = {"name":file.name, "type":file.type, "contents":e.target.result};
+			    displayFile(fileData.name);
 			    $scope.files.push(fileData);
 			    $scope.sendFile(fileData);
 			    $scope.$apply();
