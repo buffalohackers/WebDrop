@@ -3,4 +3,5 @@ function connected() {
 	var wrapper = $('.wrapper').html();
 	$('.wrapper').remove();
 	$('body').prepend(wrapper);
+	$('.step2').show();
 }
