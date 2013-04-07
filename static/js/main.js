@@ -7,7 +7,8 @@ if(DEBUG){
 
 function MainController($scope){
     $scope.files = [];
-
+    $scope.fileSize = 0.0;
+    $scope.sentFileAmount = 0.0;
     $scope.overwriteEvent = function(e){
 	e.originalEvent.stopPropagation();
 	e.originalEvent.preventDefault();
@@ -24,6 +25,7 @@ function MainController($scope){
 	for(var i=0; i<string.length; i += chunkSize){
 	    chunks.push(string.substring(i,i+chunkSize));
 	}
+	fileSize++;
 	return chunks;
     }
 
@@ -31,9 +33,10 @@ function MainController($scope){
 	for(var i=0; i<chunks.length; i++){
 	    var chunk = chunks[i];
 	    pushChunk(chunk);
+	    sentFileAmount++;
 	}
     }
-    $scope.flushChunks = function(name, type){ flushChunks(name, type) }
+    $scope.flushChunks = function(name, type){ flushChunks(name, type); fileSize = 0; sentFileAmount = 0; }
 
     $scope.sendChunkedFile = function(file){
 	var reader = new FileReader();
@@ -74,6 +77,18 @@ function MainController($scope){
     $scope.drop = function(e){
 	$scope.overwriteEvent(e);
 	$scope.sendFiles(e.originalEvent.dataTransfer.files, $scope.sendChunkedFile);
+    }
+
+    $scope.getFileRatio = function(){
+    	sentFileAmount = $scope.sentFileAmount;
+    	fileSize = $scope.fileSize;
+    	console.log(sentFileAmount/fileSize);
+    	return (sentFileAmount / fileSize);
+    }
+    $scope.getFileSize = function(){
+    	fileSize = $scope.fileSize;
+    	console.log(fileSize);
+    	return 
     }
 
     $('.file-upload').bind('change', $scope.upload);
