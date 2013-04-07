@@ -1,8 +1,9 @@
 DEBUG = true
 if(DEBUG){
     function sendFile(file){ console.log(file) }
-    function pushChunk(chunk){ console.log(chunk) }
+    function pushChunk(chunk, fileSize){ console.log(chunk); console.log(fileSize) }
     function flushChunks(name, type){ console.log("flushing chunk " + name + " of type " + type ) }
+    function sendChunks(chunks){ console.log("Sent file amount " + sentFileAmount)}
 }
 
 function MainController($scope){
@@ -28,11 +29,10 @@ function MainController($scope){
 	return chunks;
     }
 
-    $scope.sendChunks = function(chunks){
+    $scope.sendChunks = function(chunks, totalSize){
 	for(var i=0; i<chunks.length; i++){
 	    var chunk = chunks[i];
-	    pushChunk(chunk);
-	    sentFileAmount++;
+	    pushChunk(chunk, totalSize);
 	}
     }
     $scope.flushChunks = function(name, type){ flushChunks(name, type); fileSize = 0; sentFileAmount = 0; }
@@ -41,7 +41,7 @@ function MainController($scope){
 	var reader = new FileReader();
 	reader.onload = function(e){
 	    var chunks = $scope.chunkString(e.target.result, 1024);
-	    $scope.sendChunks(chunks);
+	    $scope.sendChunks(chunks, e.target.result.length);
 	    $scope.flushChunks();
 	    $scope.$apply();
 	}
