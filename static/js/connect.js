@@ -36,7 +36,7 @@ function sendFile(data) {
 	if (connectionId != "") {
 		var conn = peer.connect(connectionId);
 		conn.on('open', function() {
-			conn.send("1" + data);
+			conn.send("1" + data.contents);
 		});
 	}
 }

@@ -1,6 +1,4 @@
 function MainController($scope){
-	alert('here');
-	
     $scope.files = [];
 
     $scope.overwriteEvent = function(e){
@@ -11,7 +9,6 @@ function MainController($scope){
     }
 
     $scope.sendFile = function(file){
-    	alert('here');
 		if(typeof(sendFile) !== 'undefined') sendFile(file);
     }
 
