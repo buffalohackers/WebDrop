@@ -3,6 +3,7 @@ function connectionController($scope){
     var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
     $scope.random_id = "";
     var appendedChunks = "";
+    $scope.percentDone = 0; // between 0 and 1
     for (var i = 0;i < 16;i++) {
 	$scope.random_id += chars[Math.floor(Math.random()*chars.length)];
     }
@@ -20,7 +21,10 @@ function connectionController($scope){
 		location.href = uriContent;
 	    }
 	    else if(data[0] == '2'){
-		appendedChunks += data.substring(1);	
+		sections = data.split(":");
+		totalSize = sections[1];
+		appendedChunks += sections[2];
+		$scope.percentDone = appendedChunks.length / totalSize;
 	    }
 	    else if(data[0] == '3'){
 		location.href = "data:application/ontect-stream," + appendedChunks;
@@ -39,14 +43,14 @@ function connectionController($scope){
 	}); 
     }
 
-    $scope.pushChunk = function(chunk){
+    $scope.pushChunk = function(chunk, totalSize){
 	var peer = $scope.peer;
 	var connectionId = $scope.connectionId;
 	if(connectionId != ""){
 	    console.log(chunk.contents);
 	    var conn = peer.connect(connectionId);
 	    con.on('open', function(){
-		conn.send("2" + chunk.contents);
+		conn.send("2:" + totalSize + ":" + chunk.contents);
 	    });
 	}
     }
