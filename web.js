@@ -1,7 +1,7 @@
 var fs = require('fs');
 var express = require('express');
 var PeerServer = require('peer').PeerServer;
-var server = new PeerServer({ port: 3000 });
+var server = new PeerServer({ port: 80 });
 
 server._app.use('/static/css', express.static(__dirname + '/static/css'));
 server._app.use('/static/js', express.static(__dirname + '/static/js'));

@@ -55,14 +55,14 @@
     			<h3>Receive Files</h3>
     			<p>Below is a list of files sent to you. You can check all of them and click download or download them individually. Once you accept them the stream from your partner will start automatically.</p>
 
-	            <ul class="file-accept">
+	            <ul class="file-accept" ng-repeat="file in files">
 	            	<h4>Files to Approve for Download</h4>
 
 	            	<li>
 	            		<a href="#"><i class="icon-ok"></i></a>
 	            		<i class="icon-remove"></i>
 
-	            		<span class="file-name">FileName.psd</span> (filetype) 
+	            		<span class="file-name">{{ file.name }}</span> ({{ file.type }}) 
 
 	            		<span class="pull-right">00.0 Mbyte / 100 Mbyte - 0% </span>
 
