@@ -22,8 +22,8 @@
     <script src="../static/js/pretty.js"></script>
     <script type="text/javascript" src="../static/js/connect.js"></script>
     <script>
-        var id = getId();
-        var url = "http://www.buffalohackers.com/webdrop/" + id;
+        var id = connection.getId();
+        var url = "http://www.buffalohackers.com/webdrop/" + id ;
         console.log(url);
         $(document).ready(function(){
             $('.url').append(url);
