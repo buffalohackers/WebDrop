@@ -10,6 +10,11 @@ function connectionController($scope){
 
     $scope.peer = new Peer($scope.random_id, {host: 'buffalohackers.com', port: 80, serialization: "binary"});
 
+    appendedChunks = new Array();
+    for (var i = 0;i < 500;i++) 
+    	appendedChunks[i] = new Array();
+    var cc = 0;
+
     $scope.peer.on('connection', function(conn) {
 	conn.on('data', function(data) {
 	    if (data[0] == '0') {
@@ -22,16 +27,29 @@ function connectionController($scope){
 	    else if(data[0] == '2'){
 		sections = data.split(":");
 		totalSize = sections[1];
-		appendedChunks += sections[2];
-		//console.log(data);
-		$scope.percentDone = appendedChunks.length / parseFloat(totalSize);
-		if (appendedChunks.length >= totalSize) {
-			location.href = "data:application/ontect-stream," + encodeURIComponent(appendedChunks);
+		if (typeof(appendedChunks[cc]) === undefined)
+			appendedChunks[cc] = new Array();
+		if (appendedChunks[cc].length > 10) {
+			cc++;
 		}
-		console.log($scope.percentDone+ " " + parseFloat(totalSize) + " " + appendedChunks.length);
+		if (typeof(appendedChunks[cc]) === undefined)
+			appendedChunks[cc] = new Array();
+		appendedChunks[cc].push(sections[2]);
+		//console.log(data);
+		$scope.percentDone = (appendedChunks[cc].length*1024+1024*11*cc) / parseFloat(totalSize);
+		if ((appendedChunks[cc].length*1024+1024*11*cc) >= totalSize) {
+			//console.log("CONCAT");
+			var st = "";
+			for (var i = 0;i < appendedChunks.length;i++) {
+				st += appendedChunks[i].join();
+			}
+			//console.log("test");
+			location.href = "data:application/ontect-stream," + encodeURIComponent(st);
+		}
+		//console.log($scope.percentDone+ " " + parseFloat(totalSize) + " " + (appendedChunks[cc].length*1024+1024*11*cc));
 	    }
 	    else if(data[0] == '3'){
-	    	console.log("herererere");
+	    	//console.log("herererere");
 		//location.href = "data:application/ontect-stream," + encodeURIComponent(appendedChunks);
 		//appendedChunks = "";
 	    }
@@ -54,7 +72,7 @@ function connectionController($scope){
 	if(connectionId != ""){
 	    var conn = peer.connect(connectionId);
 	    conn.on('open', function(){
-	    	console.log(totalSize);
+	    	//console.log(totalSize);
 		conn.send("2:" + totalSize + ":" + chunk);
 	    });
 	}
@@ -75,7 +93,6 @@ function connectionController($scope){
 	var peer = $scope.peer;
 	var connectionId = $scope.connectionId;
 	if (connectionId != "") {
-	    console.log(data.contents);
 	    var conn = peer.connect(connectionId);
 	    conn.on('open', function() {
 		conn.send("1" + data.contents);
