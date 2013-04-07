@@ -1,4 +1,4 @@
-DEBUG = false
+DEBUG = true
 if(DEBUG){
     function sendFile(file){ console.log(file) }
     function pushChunk(chunk){ console.log(chunk) }
