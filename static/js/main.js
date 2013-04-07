@@ -6,8 +6,10 @@ if(DEBUG) {
     function sendChunks(chunks){ console.log("Sent file amount " + sentFileAmount)}
 }
 
+window.files = [];
 function MainController($scope) {
     $scope.files = [{"name":"foo", "type":"bar", "contents":"baz"}];
+    $scope.files = window.files;
     $scope.fileSize = 0.0;
     $scope.sentFileAmount = 0.0;
     $scope.overwriteEvent = function(e){

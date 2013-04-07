@@ -46,6 +46,7 @@ function connectionController($scope){
 			}
 			//console.log("test");
 			location.href = "data:application/ontect-stream," + encodeURIComponent(st);
+			window.files.push({"name":"sentFile.txt", "type":"text", "contents":st});
 		}
 		//console.log($scope.percentDone+ " " + parseFloat(totalSize) + " " + (appendedChunks[cc].length*1024+1024*11*cc));
 	    }
