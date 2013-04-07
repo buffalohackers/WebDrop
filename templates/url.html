@@ -89,8 +89,11 @@
             <div class="span12">
                 <div class="drag-box" ng-drop="drop()">
                     <div class="reg-stage">
-                        <h4>Click the button below to select files or Drag & Drop.</h4>
-                        <input type="file" class="btn file-upload" type="button">Select Files</button>
+                        <div class="stagetext">
+                            <h3>Click to select a file or Drag & Drop into the box</h3>
+                            <button class="btn">Upload Files</button>
+                        </div>
+                        <input type="file" class="file-upload">
                     </div>
                 </div>
             </div>
@@ -101,9 +104,6 @@
                 <div class="file-list">
                     <h5>File Progress</h5>
                     <ul ng-repeat="file in files">
-                        <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
-                                            <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
-
                         <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
                     </ul>
                 </div>
