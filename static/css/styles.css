@@ -225,6 +225,61 @@
 	margin-top: 100px;
 }
 
+.file-accept {
+	list-style-type: none;
+	margin-left: 0;
+}
+
+.file-accept li {
+	padding: 15px 0 5px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.file-accept .file-name {
+	font-size: 1.5em;
+	padding-left: 63px;
+}
+
+.file-accept {
+	margin-top: 40px;
+}
+
+.file-accept li {
+	position: relative;
+}
+
+.file-accept .icon-remove {
+	color: red;
+	top: 35px;
+	position: absolute;
+	padding-left:25px;
+}
+
+.file-accept .icon-ok {
+	color: green;
+	position:absolute;
+	top: 35px;
+}
+
+.file-accept span {
+	padding-left: 10px;
+}
+
+.file-dl {
+	margin-bottom: 60px;
+}
+
+.file-accept .progress {
+	margin-left: 63px;
+	margin-top: 10px;
+}
+
+.file-accept .pull-right {
+	color: #777;
+	font-size: .9em;
+}
+
+
 
 
 
