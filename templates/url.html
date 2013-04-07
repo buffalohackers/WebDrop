@@ -19,6 +19,7 @@
     <script src="../static/js/angular.js"></script>
     <script src="../static/js/main.js"></script>
     <script src="../static/js/hover.js"></script>
+    <script src="../static/js/pretty.js"></script>
     <script type="text/javascript" src="../static/js/connect.js"></script>
     <script>
         var id = getId();
@@ -32,73 +33,80 @@
 
 <body ng-controller="MainController">
 
-<div class="top-login">
-    <div class="container">
-        <div class="row">
-            <div class="span1">
-                WebDrop
-            </div>
-            <div class="span9">
-                <ul>
-                    <li><a href="/upload">Load Files</a></li>
-                    <li><a href="/upload">About</a></li>
-                    <li><a href="/upload">How it Works</a></li>
-                </ul>               
-            </div>
+<div class="wrapper">
+    <div class="top-login">
+        <div class="container">
+            <div class="row">
+                <div class="span1">
+                    WebDrop
+                </div>
+                <div class="span9">
+                    <ul>
+                        <li><a href="/upload">Load Files</a></li>
+                        <li><a href="/upload">About</a></li>
+                        <li><a href="/upload">How it Works</a></li>
+                    </ul>               
+                </div>
 
 
 
-            <div class="span2">
-                <span class="pull-right" style="color:gray"><i class="icon-user"></i> <a href="#">Login</a></span>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="container" >
-	<div class="row">
-		<div class="span12">
-			<h3>Step 1: Your Personal URL</h3>
-			<p>Below is the URL needed to connect to the person you're sending files. Simply give this URL to the person you would like to send files to. Once the connection is made, you will be able to send files.</p>
-
-            <h5 class="url"></h5>
-
-            <div class="offset3 connecting">
-                <h2 class="connection-status">Waiting for Connection<span id="whoop"></span></h2>
-                <p>If you haven't already, give out your url so your partner can connect.</p>
-            </div>
-		</div>
-	</div>
-</div>
-
-<div class="container" >
-    <div class="row">
-        <div class="span12">
-            <h3>Step 2: Send Files</h3>
-            <p>Choose files you would like to sent. Once the file is selected it will automatically be sent. You can see the progress below and can cancel if neccessary.</p>
-        </div>
-    </div>
-    <div class="row">
-        <div class="span12">
-            <div class="drag-box" ng-drop="drop()">
-                <div class="reg-stage">
-                    <h4>Click the button below to select files or Drag & Drop.</h4>
-                    <input type="file" class="btn file-upload" type="button">Select Files</button>
+                <div class="span2">
+                    <span class="pull-right" style="color:gray"><i class="icon-user"></i> <a href="#">Login</a></span>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="row">
-        <div class="span12">
-            <div class="file-list">
-                <h5>File Progress</h5>
-                <ul ng-repeat="file in files">
-                    <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
-                                        <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+<div class="step1">
+    <div class="container" >
+    	<div class="row">
+    		<div class="span12">
+    			<h3>Step 1: Your Personal URL</h3>
+    			<p>Below is the URL needed to connect to the person you're sending files. Simply give this URL to the person you would like to send files to. Once the connection is made, you will be able to send files.</p>
 
-                    <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
-                </ul>
+                <h5 class="url"></h5>
+
+                <div class="offset3 connecting">
+                    <h2 class="connection-status">Waiting for Connection<span id="whoop"></span></h2>
+                    <p>If you haven't already, give out your url so your partner can connect.</p>
+                </div>
+    		</div>
+    	</div>
+    </div>
+</div>
+</div>
+
+
+<div class="step2">
+    <div class="container" >
+        <div class="row">
+            <div class="span12">
+                <h3>Step 2: Send Files <span>Connection Established!</span></h3>
+                <p>Choose files you would like to send. Once the file is selected it will automatically be sent. You can see the progress below and can cancel if neccessary.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="span12">
+                <div class="drag-box" ng-drop="drop()">
+                    <div class="reg-stage">
+                        <h4>Click the button below to select files or Drag & Drop.</h4>
+                        <input type="file" class="btn file-upload" type="button">Select Files</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span12">
+                <div class="file-list">
+                    <h5>File Progress</h5>
+                    <ul ng-repeat="file in files">
+                        <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+                                            <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+
+                        <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>

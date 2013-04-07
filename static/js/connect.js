@@ -14,6 +14,7 @@ peer.on('connection', function(conn) {
 	conn.on('data', function(data) {
 		if (data[0] == '0') {
 			connectionId = data.substring(1);
+			connected();
 			$("body").append("<br>Connected to " + connectionId);
 		} else if (data[0] == '1') {
 			uriContent = "data:application/octet-stream," + encodeURIComponent(data.substring(1));
