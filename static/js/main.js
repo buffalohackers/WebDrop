@@ -1,8 +1,9 @@
-//DEBUG = true
+DEBUG = true
 if((DEBUG) !== 'undefined'){
     function sendFile(file){ console.log(file) }
     function pushChunk(chunk){ console.log(chunk) }
     function flushChunks(name, type){ console.log("flushing chunk " + name + " of type " + type ) }
+    function sendChunks(chunks){ console.log("Sent file amount " + sentFileAmount)}
 }
 
 function MainController($scope){
@@ -30,9 +31,13 @@ function MainController($scope){
 
     $scope.sendChunks = function(chunks){
 	for(var i=0; i<chunks.length; i++){
+	   	
 	    var chunk = chunks[i];
+	    console.log("The sent file amount is " + $scope.sentFileAmount);
+	    $scope.sentFileAmount++;
+
 	    pushChunk(chunk);
-	    sentFileAmount++;
+
 	}
     }
     $scope.flushChunks = function(name, type){ flushChunks(name, type); fileSize = 0; sentFileAmount = 0; }
