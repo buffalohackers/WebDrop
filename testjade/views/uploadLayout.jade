@@ -1,0 +1,89 @@
+html
+html(lang='en')
+    head
+      meta(charset='utf-8')
+      title WebDrop - Social file sharing at its best
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      meta(name='description', content='')
+      meta(name='author', content='')
+      //
+         Da Pretty Files 
+      link(href='../static/css/bootstrap.css', rel='stylesheet')
+      link(href='../static/css/bootstrap-responsive.css', rel='stylesheet')
+      link(href='../static/css/styles.css', rel='stylesheet')
+      link(rel='stylesheet', href='../static/css/font-awesome.min.css')
+      script(src='../static/js/jquery.js')
+      script(src='../static/js/angular.js')
+      script(src='../static/js/main.js')
+    body(ng-controller='MainController')
+      .top-login
+        .container
+          .row
+            .span1
+              | WebDrop
+            .span9
+              ul
+                li
+                  a(href='/upload') Load Files
+                li
+                  a(href='/upload') About
+                li
+                  a(href='/upload') How it Works
+            .span2
+              span.pull-right(style='color: gray;')
+                i.icon-user
+                a(href='#') Login
+      .container
+        .row
+          .span12
+            h3 Step 2: Send Files
+            p
+              | Choose files you would like to sent. Once the file is selected it will automatically be sent. You can see the progress below and can cancel if neccessary.
+        .row
+          .span12
+            .drag-box(ng-drop='drop()')
+              .reg-stage
+                h4 Click the button below to select files or Drag & Drop.
+                button.btn(type='button') Select Files
+        .row
+          .span12
+            .file-list
+              h5 File Progress
+              ul(ng-repeat='file in files')
+                li
+                  .file-name {{ file.name }}
+                  .file-type {{ file.type }}
+                li
+                  .file-name {{ file.name }}
+                  .file-type {{ file.type }}
+                li
+                  .file-name {{ file.name }}
+                  .file-type {{ file.type }}
+      .footer
+        .container
+          .row
+            .span8
+              ul
+                li
+                  a(href='#') Home
+                li
+                  a(href='#') About Us
+                li
+                  a(href='#') Careers
+                li
+                  a(href='#') API
+                li
+                  a(href='#') People
+                li
+                  a(href='#') Blog
+                li
+                  a(href='#') Contact
+            .span4
+              p.pull-right
+                | Built by the
+                a(href='http://www.buffalohackers.com', target='_blank') Buffalo Hackers
+      //
+         Da javascript's
+             
+      script(type='text/javascript', src='http://platform.twitter.com/widgets.js')
+      script(src='../static/js/bootstrap.js')

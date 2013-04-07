@@ -1,0 +1,97 @@
+html
+  html(lang='en')
+    head
+      meta(charset='utf-8')
+      title WebDrop - Social file sharing at its best
+      meta(name='viewport', content='width=device-width, initial-scale=1.0')
+      meta(name='description', content='')
+      meta(name='author', content='')
+      //
+         Da Pretty Files 
+      link(href='../static/css/bootstrap.css', rel='stylesheet')
+      link(href='../static/css/bootstrap-responsive.css', rel='stylesheet')
+      link(href='../static/css/styles.css', rel='stylesheet')
+      link(rel='stylesheet', href='../static/css/font-awesome.min.css')
+    body
+      .wrapper
+        .top-login
+          .container
+            .row
+              .span1
+                | WebDrop
+              .span9
+                ul
+                  li
+                    a(href='/upload') Load Files
+                  li
+                    a(href='/upload') About
+                  li
+                    a(href='/upload') How it Works
+              .span2
+                span.pull-right(style='color: gray;')
+                  i.icon-user
+                  a(href='#') Login
+        .main-splash
+          .container
+            .row
+              .span12
+                .message
+                  h1 Direct Sharing Made Simple.
+                  h3
+                    | The future of file sharing is here. Faster speeds and more
+                    br
+                    | secure than ever before.
+            .login-share
+              .row
+                .span6
+                  h5 Sign up for a Premium Account
+                  .sign-up
+                    form
+                      input.span4(type='text', placeholder='Choose a username')
+                      br
+                      input.span4(type='email', placeholder='Your email')
+                      br
+                      input.span4(type='password', placeholder='Create a password')
+                      br
+                      input(type='checkbox')
+                      | I agree to
+                      a(href='#') WebDrop Terms
+                      br
+                      button.btn.btn-info(type='button') Sign Up
+                .span5
+                  h3 Start Sharing Now
+                  p
+                    | Start sending files. All you have to do is click the button below, wait for your file to be accepted and then you're done!
+                  button.btn.btn-info(type='button') Get Started
+          //
+             end of container 
+        //
+           end main-splash 
+      .footer
+        .container
+          .row
+            .span8
+              ul
+                li
+                  a(href='#') Home
+                li
+                  a(href='#') About Us
+                li
+                  a(href='#') Careers
+                li
+                  a(href='#') API
+                li
+                  a(href='#') People
+                li
+                  a(href='#') Blog
+                li
+                  a(href='#') Contact
+            .span4
+              p.pull-right
+                | Built by the
+                a(href='http://www.buffalohackers.com', target='_blank') Buffalo Hackers
+      //
+         Da javascript's
+      script(type='text/javascript', src='http://platform.twitter.com/widgets.js')
+      script(src='../static/js/jquery.js')
+      script(src='../static/js/bootstrap.js')
