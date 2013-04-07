@@ -1,12 +1,12 @@
-DEBUG = true
-if(DEBUG){
+var DEBUG = true;
+if(DEBUG) {
     function sendFile(file){ console.log(file) }
     function pushChunk(chunk, fileSize){ console.log(chunk); console.log(fileSize) }
     function flushChunks(name, type){ console.log("flushing chunk " + name + " of type " + type ) }
     function sendChunks(chunks){ console.log("Sent file amount " + sentFileAmount)}
 }
 
-function MainController($scope){
+function MainController($scope) {
     $scope.files = [];
     $scope.fileSize = 0.0;
     $scope.sentFileAmount = 0.0;
@@ -45,6 +45,7 @@ function MainController($scope){
 	    var chunks = $scope.chunkString(e.target.result, 1024);
 	    $scope.sendChunks(chunks, e.target.result.length);
 	    $scope.flushChunks();
+	    $scope.files.push ({"name":file.name, "type":file.type, "contents":e.target.result});
 	    $scope.$apply();
 	}
 	reader.readAsBinaryString(file);
@@ -64,12 +65,12 @@ function MainController($scope){
 
     $scope.sendFiles = function(files, method){
     	console.log(files);
-	if(files.length > 0){
-	    for(var i=0; i<files.length; i++) {
-		method(files[i]);
-	    }
+		if(files.length > 0){
+		    for(var i=0; i<files.length; i++) {
+				method(files[i]);
+		    }
+		}
 	}
-    }
 
     $scope.upload = function(e){
 	$scope.overwriteEvent(e);
