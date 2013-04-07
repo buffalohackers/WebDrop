@@ -1,23 +1,47 @@
 function MainController($scope){
+	alert('here');
+	
     $scope.files = [];
 
-    $scope.drop = function(e){
-	e.originalEvent.stopPropagation();
-	e.originalEvent.preventDefault();
-	e.originalEvent.dataTransfer.dropEffect = 'copy';
-	var files = e.originalEvent.dataTransfer.files;
-	if(files.length > 0){
-	    for(var i=0; i<files.length; i++){
-		var file = files[i];
-		var reader = new FileReader();
-		reader.onload = function(e){
-		    $scope.files.push({"name":file.name, "type":file.type, "contents":e.target.result})
-		    $scope.$apply();
-		}
-		reader.readAsText(file);
-	    }
-	};
+    $scope.overwriteEvent = function(e){
+		e.originalEvent.stopPropagation();
+		e.originalEvent.preventDefault();
+		e.preventDefault();
+		e.stopPropagation();
     }
 
-    $('.drag-box').bind('drop', $scope.drop)
+    $scope.sendFile = function(file){
+    	alert('here');
+		if(typeof(sendFile) !== 'undefined') sendFile(file);
+    }
+
+    $scope.sendFiles = function(files){
+    	console.log(files);
+		if(files.length > 0){
+		    for(var i=0; i<files.length; i++){
+			var file = files[i];
+			var reader = new FileReader();
+			reader.onload = function(e){
+			    var fileData = {"name":file.name, "type":file.type, "contents":e.target.result};
+			    $scope.files.push(fileData);
+			    $scope.sendFile(fileData);
+			    $scope.$apply();
+			}
+				reader.readAsText(file);
+		    }
+		};
+    }
+
+    $scope.upload = function(e){
+		$scope.overwriteEvent(e);
+		$scope.sendFiles(e.target.files);
+    }
+
+    $scope.drop = function(e){
+		$scope.overwriteEvent(e);
+		$scope.sendFiles(e.originalEvent.dataTransfer.files);
+    }
+    
+    $('.file-upload').bind('change', $scope.upload);
+    $('.file-drop').bind('drop', $scope.drop);
 }

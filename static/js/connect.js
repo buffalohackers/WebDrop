@@ -8,8 +8,6 @@ for (var i = 0;i < 16;i++) {
 	random_id += chars[Math.floor(Math.random()*chars.length)];
 }
 
-/*		    console.log("http://www.buffalohackers.com/webdrop/" + random_id);
-*/
 var peer = new Peer(random_id, {host: 'www.buffalohackers.com', port: 80});
 
 peer.on('connection', function(conn) {
