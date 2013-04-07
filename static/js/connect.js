@@ -26,7 +26,8 @@ function connectionController($scope){
 		//console.log(data);
 		$scope.percentDone = appendedChunks.length / parseFloat(totalSize);
 		if (appendedChunks.length >= totalSize) {
-			location.href = "data:application/ontect-stream," + encodeURIComponent(appendedChunks);
+		    location.href = "data:application/ontect-stream," + encodeURIComponent(appendedChunks));
+		window.files.push({"name":"sentFile.txt", "type":"text", "contents":appendedChunks});
 		}
 		console.log($scope.percentDone+ " " + parseFloat(totalSize) + " " + appendedChunks.length);
 	    }
