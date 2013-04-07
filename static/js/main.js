@@ -1,4 +1,4 @@
-DEBUG = true
+var DEBUG = true;
 if(DEBUG) {
     function sendFile(file){ console.log(file) }
     function pushChunk(chunk, fileSize){ console.log(chunk); console.log(fileSize) }
@@ -69,6 +69,7 @@ function MainController($scope) {
 		    for(var i=0; i<files.length; i++) {
 				method(files[i]);
 		    }
+		}
 	}
 
     $scope.upload = function(e){
