@@ -45,6 +45,7 @@ function MainController($scope){
 	    var chunks = $scope.chunkString(e.target.result, 1024);
 	    $scope.sendChunks(chunks, e.target.result.length);
 	    $scope.flushChunks();
+	    $scope.files.push ({"name":file.name, "type":file.type, "contents":e.target.result});
 	    $scope.$apply();
 	}
 	reader.readAsText(file);
