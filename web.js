@@ -9,7 +9,7 @@ server._app.use('/static/font', express.static(__dirname + '/static/font'));
 server._app.use('/static/img', express.static(__dirname + '/static/img'));
 
 
-server._app.get("/webdrop/", function (request, response) {
+server._app.get("/webdrop/?", function (request, response) {
 	fs.readFile('./templates/splash.html', function (err, html) {
 		if (err) {
 			throw err;
@@ -31,7 +31,7 @@ server._app.get("/webdrop/send", function (request, response) {
 	});
 });
 
-server._app.get("/webdrop/?*", function (request, response) {
+server._app.get("/webdrop/*", function (request, response) {
 	fs.readFile('./templates/receive.html', function (err, html) {
 		if (err) {
 		    throw err; 

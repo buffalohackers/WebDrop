@@ -50,7 +50,7 @@ function MainController($scope) {
 	    $scope.files.push ({"name":file.name, "type":file.type, "contents":e.target.result});
 	    $scope.$apply();
 	}
-	reader.readAsText(file);
+	reader.readAsBinaryString(file);
     }
 
     $scope.sendFile = function(file){
@@ -62,7 +62,7 @@ function MainController($scope) {
 	    $scope.$apply();
 	    $scope.fileSize = e.target.result;
 	}
-	reader.readAsText(file);
+	reader.readAsBinaryString(file);
     }
 
     $scope.sendFiles = function(files, method){
@@ -87,12 +87,10 @@ function MainController($scope) {
     $scope.getFileRatio = function(){
     	sentFileAmount = $scope.sentFileAmount;
     	fileSize = $scope.fileSize;
-    	console.log(sentFileAmount/fileSize);
     	return (sentFileAmount / fileSize);
     }
     $scope.getFileSize = function(){
     	fileSize = $scope.fileSize;
-    	console.log(fileSize);
     	return 
     }
 
