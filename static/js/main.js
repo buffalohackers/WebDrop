@@ -80,8 +80,15 @@ function MainController($scope){
     }
 
     $scope.getFileRatio = function(){
+    	sentFileAmount = $scope.sentFileAmount;
+    	fileSize = $scope.fileSize;
     	console.log(sentFileAmount/fileSize);
     	return (sentFileAmount / fileSize);
+    }
+    $scope.getFileSize = function(){
+    	fileSize = $scope.fileSize;
+    	console.log(fileSize);
+    	return 
     }
 
     $('.file-upload').bind('change', $scope.upload);
