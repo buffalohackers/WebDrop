@@ -5,11 +5,6 @@ var server = new PeerServer({ port: 80 });
 
 server._app.use('/static/css', express.static(__dirname + '/static/css'));
 server._app.use('/static/js', express.static(__dirname + '/static/js'));
-server._app.use('/static/img', express.static(__dirname + '/static/img'));
-server._app.use('/static/font', express.static(__dirname + '/static/font'));
-
-server._app.get('/', function(req, res){res.render('layoutz.jade', {title: 'test'});});
-server._app.get('/send', function(req, res){res.render('urlLayout.jade', {title: 'test'});});
 
 
 server._app.get("/webdrop/?*", function (request, response) {
