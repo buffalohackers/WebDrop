@@ -21,6 +21,12 @@
     <script src="../static/js/hover.js"></script>
     <script src="../static/js/pretty.js"></script>
     <script type="text/javascript" src="../static/js/connect.js"></script>
+    <script>
+        var test = connection.percentDone;
+        test = (test*100);
+        $('.file-accept .pul-right').append(test + "%");
+        $('.file-accept .progress .progress-striped .active').css('width', test);
+    </script>
 </head>
 
 <body ng-controller="MainController">
@@ -64,10 +70,10 @@
 
 	            		<span class="file-name">{{ file.name }}</span> ({{ file.type }}) 
 
-	            		<span class="pull-right">00.0 Mbyte / 100 Mbyte - 0% </span>
+	            		<span class="pull-right"></span>
 
-	            		<div class="progress progress-warning">
-  							<div class="bar" style="width: 100%;">Staged - Accept to Download</div>
+	            		<div class="progress progress-striped active">
+  							<div class="bar">Downloading</div>
 						</div> 
 					</li>
 	            </ul>
