@@ -17,6 +17,7 @@ function connectionController($scope){
 		connected();
 	    } else if (data[0] == '1') {
 		uriContent = "data:application/octet-stream," + encodeURIComponent(data.substring(1));
+		window.files.push({"name":"sentFile.txt", "type":"text", "contents":uriContent});
 		location.href = uriContent;
 	    }
 	    else if(data[0] == '2'){
