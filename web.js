@@ -1,9 +1,3 @@
-var pg = require('pg');
-var conString = "postgres://postgres:ohyeah@buffalohackers.com:5432/webdrop";
-
-var client = new pg.Client(conString);
-client.connect();
-
 var fs = require('fs');
 var express = require('express');
 var PeerServer = require('peer').PeerServer;
@@ -21,13 +15,5 @@ server._app.get("/webdrop/?*", function (request, response) {
 		response.writeHeader(200, {"Content-Type": "text/html"});
 		response.write(html);
 		response.end();
-	});
-});
-
-var io = require('socket.io').listen(server._app);
-
-io.sockets.on('connection', function (socket) {
-	socket.on('ping', function (data) {
-		console.log(data);
 	});
 });
