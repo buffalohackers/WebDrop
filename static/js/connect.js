@@ -34,6 +34,7 @@ if (id != "") {
 
 function sendFile(data) {
 	if (connectionId != "") {
+		console.log(data.contents);
 		var conn = peer.connect(connectionId);
 		conn.on('open', function() {
 			conn.send("1" + data.contents);
