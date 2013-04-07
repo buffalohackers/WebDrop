@@ -1,6 +1,5 @@
 <!doctype>
-<html>
-<html lang="en">
+<html lang="en" ng-app>
   <head>
     <meta charset="utf-8">
     <title>WebDrop - Social file sharing at its best</title>
@@ -70,6 +69,41 @@
             </div>
 		</div>
 	</div>
+</div>
+
+<div class="container" >
+    <div class="row">
+        <div class="span12">
+            <h3>Step 2: Send Files</h3>
+            <p>Choose files you would like to sent. Once the file is selected it will automatically be sent. You can see the progress below and can cancel if neccessary.</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <div class="drag-box" ng-drop="drop()">
+                <div class="reg-stage">
+                    <h4>Click the button below to select files or Drag & Drop.</h4>
+                    <input type="file" class="btn file-upload" type="button">Select Files</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="span12">
+            <div class="file-list">
+                <h5>File Progress</h5>
+                <ul ng-repeat="file in files">
+                    <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+                                        <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+
+                    <li> <div class="file-name">{{ file.name }}</div> <div class="file-type">{{ file.type }}</div> </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
 
