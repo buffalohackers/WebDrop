@@ -26,11 +26,18 @@ peer.on('connection', function(conn) {
 var link = document.location.href.split('/');
 var id = link[4];
 
-if (id != "") {
+alert(id);
+
+if (typeof(id) !== undefined && id != "") {
+	alert('almost woo' + id);
 	var handShake = peer.connect(id);
 	handShake.on('open', function(){
+		alert('woo');
 		handShake.send('0' + peer.id);
-	}); 
+	});
+	handShake.on('error', function() {
+		alert('error');
+	});
 }
 
 function sendFile(data) {
