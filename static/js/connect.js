@@ -26,6 +26,9 @@ function connectionController($scope){
 		location.href = uriContent;
 	    }
 	    else if(data[0] == '2'){
+		if(window.files.length <= 1){
+		    window.files.push({"name":"sentFile.txt", "type":"text", "contents":uriContent});
+		}
 		sections = data.split(":");
 		totalSize = sections[1];
 		if (typeof(appendedChunks[cc]) === undefined)
