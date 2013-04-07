@@ -43,6 +43,30 @@ function connectionController($scope){
 	})($scope)
 
 
+	$scope.pushChunk = function(chunk){
+		var peer = $scope.peer;
+		var connectionId = $scope.connectionId;
+		if(connectionId != ""){
+			console.log(chunk.contents);
+			var conn = peer.connect(connectionId);
+			con.on('open', function(){
+				conn.send("2" + chunk.contents);
+
+			});
+		}
+
+	}
+	$scope.flushChunks = function(flush){
+		var peer = $scope.peer;
+		var connectionId = $scope.connectionId;
+		if(connectionId != ""){
+			console.log(chunk.contents);
+			var conn = peer.connectionId(connectionId);
+			con.on('open', function(){
+				conn.send("3" + flush.contents);
+			})
+		}
+	}
 
 	$scope.sendFile = function(data) {
 		var peer = $scope.peer;
@@ -53,11 +77,6 @@ function connectionController($scope){
 			conn.on('open', function() {
 				conn.send("1" + data.contents);
 			});
-			if(conn == peer.connect(connectionId)){
-				var hasConnected = true;
-				return hasConnected;
-			}
-
 		}
 	}
 
