@@ -1,4 +1,4 @@
-DEBUG = true
+//DEBUG = true
 if((DEBUG) !== 'undefined'){
     function sendFile(file){ console.log(file) }
     function pushChunk(chunk){ console.log(chunk) }

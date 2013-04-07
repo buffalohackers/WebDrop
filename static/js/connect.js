@@ -1,10 +1,9 @@
 $(function(){
-    var controller = {};
-    new connectionController(controller);
-    // globalize the client side api
-    window.sendFile = controller.sendFile;
-    window.pushChunk = controller.pushChunk;
-    window.flushChunks = controller.flushChunks;
+    connection = {}
+    new connectionController(connection);
+    window.pushChunk = function(chunk){ connection.pushChunk(chunk) }
+    window.flushChunks = function(name, type){ connection.flushChunks(name) }
+    window.sendFile = function(data){ connection.sendFile(data) }
 })
 
 function connectionController($scope){
@@ -42,24 +41,6 @@ function connectionController($scope){
 	$scope.link = document.location.href.split('/');
 	$scope.id = link[4];
 
-	var $scope.peer = new Peer(random_id, {host: 'www.buffalohackers.com', port: 80});
-
-	peer.on('connection', function(conn) {
-	    conn.on('data', function(data) {
-		if (data[0] == '0') {
-		    $scope.connectionId = data.substring(1);
-		    connected();
-		    $("body").append("<br>Connected to " + connectionId);
-		} else if (data[0] == '1') {
-		    uriContent = "data:application/octet-stream," + encodeURIComponent(data.substring(1));
-		    location.href = uriContent;
-		}
-	    });
-	});
-
-	var $scope.link = document.location.href.split('/');
-	var $scope.id = link[4];
-
 	if (id != "") {
 	    var handShake = peer.connect(id);
 	    handShake.on('open', function(){
@@ -67,6 +48,30 @@ function connectionController($scope){
 	    }); 
 	}
     })($scope)
+
+    $scope.pushChunk = function(chunk){
+	var peer = $scope.peer;
+	var connectionId = $scope.connectionId;
+	if(connectionId != ""){
+	    console.log(chunk.contents);
+	    var conn = peer.connect(connectionId);
+	    con.on('open', function(){
+		conn.send("2" + chunk.contents);
+	    });
+	}
+    }
+
+    $scope.flushChunks = function(flush){
+	var peer = $scope.peer;
+	var connectionId = $scope.connectionId;
+	if(connectionId != ""){
+	    console.log(chunk.contents);
+	    var conn = peer.connectionId(connectionId);
+	    con.on('open', function(){
+		conn.send("3" + flush.contents);
+	    })
+	}
+    }
 
     $scope.sendFile = function(data) {
 	var peer = $scope.peer;
@@ -77,12 +82,9 @@ function connectionController($scope){
 	    conn.on('open', function() {
 		conn.send("1" + data.contents);
 	    });
-	    if(conn == peer.connect(connectionId)){
-		var hasConnected = true;
-		return hasConnected;
-	    }
 	}
     }
+
 
     $scope.getId = function() {
 	return $scope.random_id;
@@ -94,4 +96,3 @@ function connectionController($scope){
 	});
     });
 }
-
