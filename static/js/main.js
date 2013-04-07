@@ -25,7 +25,6 @@ function MainController($scope){
 	for(var i=0; i<string.length; i += chunkSize){
 	    chunks.push(string.substring(i,i+chunkSize));
 	}
-	fileSize++;
 	return chunks;
     }
 
@@ -56,6 +55,7 @@ function MainController($scope){
 	    $scope.files.push(fileData);
 	    if(typeof(sendFile) !== 'undefined') sendFile(fileData);
 	    $scope.$apply();
+	    $scope.fileSize = e.target.result;
 	}
 	reader.readAsText(file);
     }
