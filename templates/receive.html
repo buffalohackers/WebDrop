@@ -20,13 +20,16 @@
     <script src="../static/js/main.js"></script>
     <script src="../static/js/hover.js"></script>
     <script src="../static/js/pretty.js"></script>
-    <script type="text/javascript" src="../static/js/connect.js"></script>
     <script>
-        var test = connection.percentDone;
-        test = (test*100);
-        $('.file-accept .pul-right').append(test + "%");
-        $('.file-accept .progress .progress-striped .active').css('width', test);
+        function updatePercent() {
+            var test = connection.percentDone;
+            test = (test*100) + '%';
+            $('.file-accept .pul-right').append(test);
+            $('.progress .bar').css('width', test);
+        }
     </script>
+    <script type="text/javascript" src="../static/js/connect.js"></script>
+    
 </head>
 
 <body ng-controller="MainController">

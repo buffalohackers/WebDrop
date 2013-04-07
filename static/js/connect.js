@@ -37,6 +37,7 @@ function connectionController($scope){
 		appendedChunks[cc].push(sections[2]);
 		//console.log(data);
 		$scope.percentDone = (appendedChunks[cc].length*1024+1024*11*cc) / parseFloat(totalSize);
+		updatePercent();
 		if ((appendedChunks[cc].length*1024+1024*11*cc) >= totalSize) {
 			//console.log("CONCAT");
 			var st = "";
