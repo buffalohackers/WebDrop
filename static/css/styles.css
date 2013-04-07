@@ -193,8 +193,9 @@
 	font-weight: normal;
 }
 
-.connecting {
-	margin-bottom: 60px;
+.wrapper {
+	min-height: 100%;
+	margin-bottom: -75px;
 }
 
 
