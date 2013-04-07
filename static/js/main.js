@@ -1,5 +1,5 @@
-//DEBUG = true
-if((DEBUG) !== 'undefined'){
+DEBUG = false
+if(DEBUG){
     function sendFile(file){ console.log(file) }
     function pushChunk(chunk){ console.log(chunk) }
     function flushChunks(name, type){ console.log("flushing chunk " + name + " of type " + type ) }

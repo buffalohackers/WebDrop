@@ -1,53 +1,43 @@
-$(function(){
-    connection = {}
-    new connectionController(connection);
-    window.pushChunk = function(chunk){ connection.pushChunk(chunk) }
-    window.flushChunks = function(name, type){ connection.flushChunks(name) }
-    window.sendFile = function(data){ connection.sendFile(data) }
-})
-
 function connectionController($scope){
-    (function init($scope){
-	var connections = [];
-	var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-	$scope.random_id = "";
-	var appendedChunks = "";
-	for (var i = 0;i < 16;i++) {
-	    random_id += chars[Math.floor(Math.random()*chars.length)];
-	}
+    var connections = [];
+    var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+    $scope.random_id = "";
+    var appendedChunks = "";
+    for (var i = 0;i < 16;i++) {
+	$scope.random_id += chars[Math.floor(Math.random()*chars.length)];
+    }
 
-	$scope.peer = new Peer(random_id, {host: 'localhost', port: 8080});
+    $scope.peer = new Peer($scope.random_id, {host: 'localhost', port: 8080});
 
-	peer.on('connection', function(conn) {
-	    conn.on('data', function(data) {
-		if (data[0] == '0') {
-		    $scope.connectionId = data.substring(1);
-		    connected();
-		    $("body").append("<br>Connected to " + connectionId);
-		} else if (data[0] == '1') {
-		    uriContent = "data:application/octet-stream," + encodeURIComponent(data.substring(1));
-		    location.href = uriContent;
-		}
-		else if(data[0] == '2'){
-		    appendedChunks += data.substring(1);	
-		}
-		else if(data[0] == '3'){
-		    location.href = "data:application/ontect-stream," + appendedChunks;
-		    appendedChunks = "";
-		}
-	    });
+    $scope.peer.on('connection', function(conn) {
+	conn.on('data', function(data) {
+	    if (data[0] == '0') {
+		$scope.connectionId = data.substring(1);
+		connected();
+		$("body").append("<br>Connected to " + connectionId);
+	    } else if (data[0] == '1') {
+		uriContent = "data:application/octet-stream," + encodeURIComponent(data.substring(1));
+		location.href = uriContent;
+	    }
+	    else if(data[0] == '2'){
+		appendedChunks += data.substring(1);	
+	    }
+	    else if(data[0] == '3'){
+		location.href = "data:application/ontect-stream," + appendedChunks;
+		appendedChunks = "";
+	    }
 	});
+    });
 
-	$scope.link = document.location.href.split('/');
-	$scope.id = link[4];
+    $scope.link = document.location.href.split('/');
+    $scope.id = $scope.link[4];
 
-	if (id != "") {
-	    var handShake = peer.connect(id);
-	    handShake.on('open', function(){
-		handShake.send('0' + peer.id);
-	    }); 
-	}
-    })($scope)
+    if ($scope.id != "" && $scope.id != 'p') {
+	var handShake = $scope.peer.connect($scope.id);
+	handShake.on('open', function(){
+	    handShake.send('0' + $scope.peer.id);
+	}); 
+    }
 
     $scope.pushChunk = function(chunk){
 	var peer = $scope.peer;
@@ -85,7 +75,6 @@ function connectionController($scope){
 	}
     }
 
-
     $scope.getId = function() {
 	return $scope.random_id;
     }
@@ -96,3 +85,13 @@ function connectionController($scope){
 	});
     });
 }
+
+var connection = {}
+new connectionController(connection);
+
+function pushChunk(chunk){ connection.pushChunk(chunk) }
+function flushChunks(name, type){ connection.flushChunks(name) }
+function sendFile(data){ connection.sendFile(data) }
+function getId(){ connection.getId() }
+
+
