@@ -4,12 +4,12 @@ function connectionController($scope){
 		var connections = [];
 		var chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
 		$scope.random_id = "";
-
+		var appendedChunks = "";
 		for (var i = 0;i < 16;i++) {
 			random_id += chars[Math.floor(Math.random()*chars.length)];
 		}
 
-		var $scope.peer = new Peer(random_id, {host: 'www.buffalohackers.com', port: 80});
+		$scope.peer = new Peer(random_id, {host: 'localhost', port: 8080});
 
 		peer.on('connection', function(conn) {
 			conn.on('data', function(data) {
@@ -21,11 +21,18 @@ function connectionController($scope){
 					uriContent = "data:application/octet-stream," + encodeURIComponent(data.substring(1));
 					location.href = uriContent;
 				}
+				else if(data[0] == '2'){
+					appendedChunks += data.substring(1);	
+				}
+				else if(data[0] == '3'){
+					location.href = "data:application/ontect-stream," + appendedChunks;
+					appendedChunks = "";
+				}
 			});
 		});
 
-		var $scope.link = document.location.href.split('/');
-		var $scope.id = link[4];
+		$scope.link = document.location.href.split('/');
+		$scope.id = link[4];
 
 		if (id != "") {
 			var handShake = peer.connect(id);
