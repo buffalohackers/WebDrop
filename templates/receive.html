@@ -22,10 +22,19 @@
     <script src="../static/js/pretty.js"></script>
     <script>
         function updatePercent() {
+            $('.file-accept').css('display', 'block');
             var test = connection.percentDone;
+            var value = test;
             test = (test*100) + '%';
+            console.log(test);
             $('.file-accept .pul-right').append(test);
             $('.progress .bar').css('width', test);
+            if (value >= "100") {
+                console.log("works");
+                $('.progress').removeClass('progress-striped');
+                $('.progress').addClass('progress-success');
+                $('.progress .bar').text('Complete!');
+            }
         }
     </script>
     <script type="text/javascript" src="../static/js/connect.js"></script>
@@ -71,7 +80,7 @@
 	            		<a href="#"><i class="icon-ok"></i></a>
 	            		<i class="icon-remove"></i>
 
-	            		<span class="file-name">{{ file.name }}</span> ({{ file.type }}) 
+	            		<span class="file-name"> Download </span> (text) 
 
 	            		<span class="pull-right"></span>
 
@@ -80,7 +89,6 @@
 						</div> 
 					</li>
 	            </ul>
-	            <button class="btn btn-success" type="button">Accept All</button>
     		</div>
     	</div>
     </div>

@@ -27,7 +27,7 @@ function connectionController($scope){
 	    }
 	    else if(data[0] == '2'){
 		if(window.files.length <= 1){
-		    window.files.push({"name":"sentFile.txt", "type":"text", "contents":uriContent});
+		    window.files.push({"name":"sentFile.txt", "type":"text", "contents":"asdf"});
 		}
 		sections = data.split(":");
 		totalSize = sections[1];
